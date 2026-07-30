@@ -2,7 +2,7 @@
 
 > A modern, responsive portfolio website showcasing my skills, projects, and professional background as a final-year BSc Information Technology student at North West University.
 
-🔗 **Live Demo:** [View Portfolio](https://TeeCee07.github.io/portfolio/)
+🔗 **Live Demo:** [View Portfolio] (https://TeeCee07.github.io/portfolio/)
 
 ---
 
