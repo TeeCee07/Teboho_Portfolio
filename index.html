@@ -1100,10 +1100,10 @@
                         </a>
                     </div>
                 </div>
-                <form class="contact-form animate-on-scroll" action="#" method="POST">
-                    <input type="text" placeholder="Your Name" required />
-                    <input type="email" placeholder="Your Email" required />
-                    <textarea rows="4" placeholder="Your Message" required></textarea>
+                <form action="https://formspree.io/f/xeeywonr" method="POST" class="contact-form animate-on-scroll">
+                    <input type="text" name="name" placeholder="Your Name" required />
+                    <input type="email" name="email" placeholder="Your Email" required />
+                    <textarea name="message" rows="4" placeholder="Your Message" required></textarea>
                     <button type="submit" class="btn btn-primary">Send Message</button>
                 </form>
             </div>
@@ -1118,64 +1118,8 @@
     </footer>
 
     <script>
-    // ============================================================
-//CONTACT FORM HANDLER
-// ============================================================
+    
 
-const SCRIPT_URL = "https://script.google.com/macroshttps://script.google.com/macros/s/AKfycbxfb88haFZ0ygbsoBre7YxejW1RtJ1THiEL63fD5Qm5brgsks482DBqBaE4JJFtje3B/exec/s/AKfycbxxxxxxxxxxxxxxxxxxxxxxxx/exec";
-
-const contactForm = document.getElementById('contact-form');
-const formMessage = document.getElementById('form-message');
-const submitBtn = document.getElementById('submit-btn');
-
-if (contactForm) {
-    contactForm.addEventListener('submit', async function(e) {
-        e.preventDefault();
-        
-        submitBtn.disabled = true;
-        submitBtn.textContent = 'Sending...';
-        formMessage.textContent = '';
-        formMessage.className = '';
-        formMessage.style.display = 'none';
-        
-        const formData = {
-            name: document.getElementById('name').value.trim(),
-            email: document.getElementById('email').value.trim(),
-            message: document.getElementById('message').value.trim()
-        };
-        
-        try {
-            const response = await fetch(SCRIPT_URL, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(formData)
-            });
-            
-            const data = await response.json();
-            
-            if (data.status === 200) {
-                formMessage.textContent = '✅ Message sent successfully! I\'ll get back to you soon.';
-                formMessage.className = 'success';
-                formMessage.style.display = 'block';
-                contactForm.reset();
-            } else {
-                formMessage.textContent = '❌ ' + (data.message || 'Something went wrong. Please try again.');
-                formMessage.className = 'error';
-                formMessage.style.display = 'block';
-            }
-        } catch (error) {
-            formMessage.textContent = '❌ Failed to send message. Please try again.';
-            formMessage.className = 'error';
-            formMessage.style.display = 'block';
-            console.error('Error:', error);
-        } finally {
-            submitBtn.disabled = false;
-            submitBtn.textContent = 'Send Message';
-        }
-    });
-}
         // ============================================================
         //  1. THEME TOGGLE
         // ============================================================
