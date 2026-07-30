@@ -73,7 +73,7 @@ This portfolio serves as my **virtual CV** – a comprehensive, interactive repr
 
 **Teboho Comfort Masiteng**
 
-- 📧 Email: Tebzacomfortl11@gmail.com
+- 📧 Email: Tebzacomfort111@gmail.com
 - 🔗 GitHub: [github.com/TeeCee07](https://github.com/TeeCee07)
 - 🔗 LinkedIn: [linkedin.com/in/teboho-comfort-073490178](https://www.linkedin.com/in/teboho-comfort-073490178)
 
