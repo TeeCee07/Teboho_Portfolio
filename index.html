@@ -1118,6 +1118,59 @@
     </footer>
 
     <script>
+         const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbz6iM84ub6jpnTXYKvtXpjDRe_U5pWoJWwU6Dsdw3OoIkLaV4n8K8oK5I_UuEeb2BsP/exec";
+    
+    const contactForm = document.getElementById('contact-form');
+    const formMessage = document.getElementById('form-message');
+    const submitBtn = document.getElementById('submit-btn');
+    
+    if (contactForm) {
+        contactForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            // Disable button and show loading state
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending...';
+            formMessage.textContent = '';
+            formMessage.className = '';
+            
+            // Collect form data
+            const formData = {
+                name: document.getElementById('name').value.trim(),
+                email: document.getElementById('email').value.trim(),
+                message: document.getElementById('message').value.trim()
+            };
+            
+            try {
+                const response = await fetch(SCRIPT_URL, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(formData)
+                });
+                
+                const data = await response.json();
+                
+                if (data.status === 200) {
+                    formMessage.textContent = '✅ Message sent successfully! I\'ll get back to you soon.';
+                    formMessage.className = 'success';
+                    contactForm.reset();
+                } else {
+                    formMessage.textContent = '❌ ' + (data.message || 'Something went wrong. Please try again.');
+                    formMessage.className = 'error';
+                }
+            } catch (error) {
+                formMessage.textContent = '❌ Failed to send message. Please check your connection and try again.';
+                formMessage.className = 'error';
+                console.error('Error:', error);
+            } finally {
+                // Re-enable button
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Send Message';
+            }
+        });
+    }
         // ============================================================
         //  1. THEME TOGGLE
         // ============================================================
