@@ -80,9 +80,6 @@
             box-shadow: 0 0 20px var(--accent-glow);
         }
 
-        /*  ============================================================
-                   PROGRESS BAR
-            ============================================================ */
         #progress-bar {
             position: fixed;
             top: 0;
@@ -95,9 +92,6 @@
             box-shadow: 0 0 30px var(--accent-glow);
         }
 
-        /* ============================================================
-                   UTILITY
-           ============================================================ */
         .container {
             max-width: 1140px;
             margin: 0 auto;
@@ -136,9 +130,6 @@
             box-shadow: 0 0 30px var(--accent-glow);
         }
 
-        /* ============================================================
-                   BUTTONS
-           ============================================================ */
         .btn {
             display: inline-block;
             padding: 13px 32px;
@@ -195,10 +186,18 @@
             transform: scale(1.05);
             box-shadow: 0 0 30px var(--accent-glow);
         }
+        .btn-github {
+            background: transparent;
+            color: var(--text);
+            border: 2px solid var(--border-glass);
+            backdrop-filter: blur(4px);
+        }
+        .btn-github:hover {
+            background: var(--accent);
+            color: #0a0a1a;
+            box-shadow: 0 0 40px var(--accent-glow);
+        }
 
-        /* ============================================================
-                   THEME TOGGLE
-           ============================================================ */
         #theme-toggle {
             position: fixed;
             top: 20px;
@@ -223,9 +222,6 @@
             box-shadow: 0 0 40px var(--accent-glow);
         }
 
-        /* ============================================================
-                   NAVIGATION – Glass
-           ============================================================ */
         nav {
             position: fixed;
             top: 0;
@@ -302,9 +298,6 @@
             cursor: pointer;
         }
 
-        /* ============================================================
-                   HERO
-           ============================================================ */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -402,28 +395,6 @@
             display: block;
         }
 
-        /* ============================================================
-                   GLASS CARDS
-           ============================================================ */
-        .glass-card {
-            background: var(--bg-card);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid var(--border-glass);
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-        }
-        .glass-card:hover {
-            background: var(--bg-card-hover);
-            transform: translateY(-6px);
-            border-color: var(--accent);
-            box-shadow: 0 0 50px var(--accent-glow), var(--shadow);
-        }
-
-        /* ============================================================
-                   ABOUT
-           ============================================================ */
         .about-grid {
             display: grid;
             grid-template-columns: 2fr 1fr;
@@ -480,9 +451,6 @@
             color: var(--text-muted);
         }
 
-        /* ============================================================
-                   RESUME
-           ============================================================ */
         .resume-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -524,7 +492,7 @@
         }
 
         /* ============================================================
-                   PROJECTS
+                   PROJECTS – 4 Repos
            ============================================================ */
         .project-grid {
             display: grid;
@@ -540,6 +508,8 @@
             transition: var(--transition);
             cursor: default;
             transform-style: preserve-3d;
+            display: flex;
+            flex-direction: column;
         }
         .project-card:hover {
             border-color: var(--accent);
@@ -561,6 +531,7 @@
         .project-card p {
             color: var(--text-light);
             margin-bottom: 16px;
+            flex-grow: 1;
         }
         .project-tech {
             display: flex;
@@ -585,10 +556,10 @@
             color: var(--accent);
             box-shadow: 0 0 20px var(--accent-glow);
         }
+        .project-card .btn {
+            align-self: flex-start;
+        }
 
-        /* ============================================================
-                   SKILLS
-           ============================================================ */
         .skills-grid {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
@@ -636,9 +607,6 @@
             box-shadow: 0 0 20px var(--accent-glow);
         }
 
-        /* ============================================================
-                   CONTACT
-           ============================================================ */
         .contact-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -698,9 +666,6 @@
             box-shadow: 0 0 30px var(--accent-glow);
         }
 
-        /* ============================================================
-                   FOOTER
-           ============================================================ */
         footer {
             background: var(--bg-card);
             backdrop-filter: blur(12px);
@@ -727,27 +692,21 @@
             }
         }
 
-        /* ============================================================
-                   SCROLL ANIMATIONS
-           ============================================================ */
         .animate-on-scroll {
             opacity: 0;
             transform: translateY(50px);
             transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
                 transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
-
         .animate-on-scroll.visible {
             opacity: 1;
             transform: translateY(0);
         }
-
         .stagger>* {
             opacity: 0;
             transform: translateY(40px);
             transition: opacity 0.7s ease, transform 0.7s ease;
         }
-
         .stagger.visible>*:nth-child(1) {
             transition-delay: 0.05s;
         }
@@ -766,20 +725,21 @@
         .stagger.visible>*:nth-child(6) {
             transition-delay: 0.55s;
         }
-
+        .stagger.visible>*:nth-child(7) {
+            transition-delay: 0.65s;
+        }
+        .stagger.visible>*:nth-child(8) {
+            transition-delay: 0.75s;
+        }
         .stagger.visible>* {
             opacity: 1;
             transform: translateY(0);
         }
-
         .hero .animate-on-scroll {
             opacity: 1;
             transform: translateY(0);
         }
 
-        /* ============================================================
-                   RESPONSIVE
-           ============================================================ */
         @media (max-width: 992px) {
             .hero-content {
                 grid-template-columns: 1fr;
@@ -805,6 +765,9 @@
                 grid-template-columns: 1fr;
             }
             .skills-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .project-grid {
                 grid-template-columns: 1fr 1fr;
             }
             .about-stats {
@@ -911,7 +874,6 @@
                 <div class="hero-buttons animate-on-scroll visible">
                     <a href="#projects" class="btn btn-primary">View My Work</a>
                     <a href="#contact" class="btn btn-secondary">Contact Me</a>
-                    <!-- ===== DOWNLOAD CV BUTTON ===== -->
                     <a href="Teboho_Masiteng_CV.pdf" download class="btn btn-download">
                         <i class="fas fa-download"></i> Download CV
                     </a>
@@ -938,8 +900,7 @@
                 <div class="about-text animate-on-scroll">
                     <p>
                         I'm a final-year <strong>BSc in Information Technology</strong> student at North West University,
-                        driven to apply my academic training in <strong>Java, C#, and database management</strong>
-                        to real-world software engineering and IT teams.
+                        driven to apply my academic training and skills to real-world software engineering and IT teams.
                     </p>
                     <p>
                         With a strong foundation in problem-solving and front-line customer service experience,
@@ -952,7 +913,7 @@
                 </div>
                 <div class="about-stats stagger animate-on-scroll">
                     <div class="stat-card">
-                        <span class="stat-number" data-count="2">0</span>
+                        <span class="stat-number" data-count="4">0</span>
                         <span class="stat-label">Projects</span>
                     </div>
                     <div class="stat-card">
@@ -978,13 +939,15 @@
                     <div class="resume-item">
                         <h4>BSc in Information Technology</h4>
                         <p class="meta">North West University · 2022 – Present</p>
-                        <p>Final-year student specializing in software development and information systems.</p>
+                        <p>Final-year BSc in Information Technology student at North West University. Driven to leverage
+                           academic training in Java, C#, and database management to contribute effectively to software
+                           engineering and general IT teams. Possesses strong foundational problem-solving abilities
+                           combined with valuable front line customer service experience</p>
                     </div>
                     <div class="resume-item">
                         <h4>Matric</h4>
                         <p class="meta">Holmdene Secondary School · 2014</p>
                     </div>
-                    <!-- Download button in Resume section too -->
                     <div style="margin-top: 20px; text-align: center;">
                         <a href="Teboho_Masiteng_CV.pdf" download class="btn btn-download">
                             <i class="fas fa-download"></i> Download Full CV (PDF)
@@ -1007,12 +970,13 @@
         </div>
     </section>
 
-    <!-- ===== PROJECTS ===== -->
+    <!-- ===== PROJECTS – 4 Repos ===== -->
     <section id="projects" class="projects">
         <div class="container">
             <h2 class="section-title animate-on-scroll">Projects</h2>
             <div class="project-grid stagger animate-on-scroll" id="project-grid">
 
+                <!-- Repo 1: CruizeControl -->
                 <div class="project-card" data-tilt>
                     <div class="project-icon"><i class="fas fa-car"></i></div>
                     <h3>CruizeControl Rental Cars</h3>
@@ -1028,17 +992,44 @@
                     </a>
                 </div>
 
+                <!-- Repo 2: Clinical Blood Bank -->
                 <div class="project-card" data-tilt>
                     <div class="project-icon"><i class="fas fa-droplet"></i></div>
                     <h3>Clinical Blood Bank</h3>
                     <p>
-                        Web-based blood bank management system for managing donations,
+                        Web-based blood bank management system for managing blood donations,
                         donor records, blood stock, and hospital requests.
                     </p>
                     <div class="project-tech">
                         <span>C#</span><span>HTML</span><span>JavaScript</span><span>SQL</span>
                     </div>
                     <a href="https://github.com/TeeCee07" target="_blank" class="btn btn-small">
+                        <i class="fab fa-github"></i> View on GitHub
+                    </a>
+                </div>
+
+                <!-- Repo 3: Portfolio (Your portfolio) -->
+                <div class="project-card" data-tilt>
+                    <div class="project-icon"><i class="fas fa-user-circle"></i></div>
+                    <h3>Portfolio</h3>
+                    <p>My personal portfolio website built with HTML, CSS, and JavaScript. Features dark/light mode, animations, and a contact form.</p>
+                    <div class="project-tech">
+                        <span>HTML</span><span>CSS</span><span>JavaScript</span>
+                    </div>
+                    <a href="https://github.com/TeeCee07/portfolio" target="_blank" class="btn btn-github">
+                        <i class="fab fa-github"></i> View on GitHub
+                    </a>
+                </div>
+
+                <!-- Repo 4: Thamas Portfolio -->
+                <div class="project-card" data-tilt>
+                    <div class="project-icon"><i class="fas fa-code"></i></div>
+                    <h3>Thamas Portfolio</h3>
+                    <p>Portfolio website for Thamas. Built with modern web technologies and responsive design.</p>
+                    <div class="project-tech">
+                        <span>HTML</span><span>CSS</span><span>JavaScript</span>
+                    </div>
+                    <a href="https://github.com/TeeCee07/thamas-portfolio" target="_blank" class="btn btn-github">
                         <i class="fab fa-github"></i> View on GitHub
                     </a>
                 </div>
@@ -1059,6 +1050,7 @@
                     <div class="skill-bar"><span>C#</span><div class="bar"><div class="fill" style="width:80%;"></div></div></div>
                     <div class="skill-bar"><span>Python</span><div class="bar"><div class="fill" style="width:70%;"></div></div></div>
                     <div class="skill-bar"><span>HTML / CSS</span><div class="bar"><div class="fill" style="width:85%;"></div></div></div>
+                    <div class="skill-bar"><span>JavaScript</span><div class="bar"><div class="fill" style="width:75%;"></div></div></div>
                 </div>
 
                 <div class="skill-category">
@@ -1069,7 +1061,8 @@
                 </div>
 
                 <div class="skill-category">
-                    <h3>Productivity Tools</h3>
+                    <h3>Tools &amp; Productivity</h3>
+                    <div class="skill-bar"><span>Git &amp; GitHub</span><div class="bar"><div class="fill" style="width:80%;"></div></div></div>
                     <div class="skill-bar"><span>MS Office Suite</span><div class="bar"><div class="fill" style="width:90%;"></div></div></div>
                     <div class="skill-bar"><span>Google Workspace</span><div class="bar"><div class="fill" style="width:85%;"></div></div></div>
                 </div>
@@ -1092,7 +1085,6 @@
                         <li><i class="fab fa-github"></i> <a href="https://github.com/TeeCee07" target="_blank">github.com/TeeCee07</a></li>
                         <li><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/teboho-comfort-073490178" target="_blank">linkedin.com/in/teboho-comfort</a></li>
                     </ul>
-                    <!-- Download CV in contact section -->
                     <div style="margin-top: 24px;">
                         <a href="Teboho_Masiteng_CV.pdf" download class="btn btn-download">
                             <i class="fas fa-download"></i> Download CV (PDF)
